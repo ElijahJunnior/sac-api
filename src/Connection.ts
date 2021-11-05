@@ -1,6 +1,6 @@
 import sql from 'mssql';
 
-export async function OpenConnection() {
+export async function openConnection() {
 
     const sqlConfig = {
         user: process.env.DB_USER ?? '',
