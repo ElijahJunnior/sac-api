@@ -1,10 +1,9 @@
-import { sql } from '../Connection';
 import { User } from '../entity/User';
 
-class UserController {
+class UsuarioController {
 
 
 
 }
 
-export { UserController }
+export { UsuarioController }

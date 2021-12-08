@@ -45,22 +45,22 @@ export const Connection: ConnectionProps = {
             }
         }
 
-
         try {
             // make sure that any items are correctly URL encoded in the connection string
-            Connection.SAC = await connect(SACConfig);
-            console.log('Connection on SAC database opened successfully')
+            Connection.SAC = new ConnectionPool(SACConfig);
+            Connection.SAC.connect();
+            console.log('Connection on SAC database opened successfully');
         } catch (err) {
-            console.log('Erro to open connection on SAC database: ', err)
+            console.log('Erro to open connection on SAC database: ', err);
         }
 
         try {
             // make sure that any items are correctly URL encoded in the connection string
-            Connection.FIN = await connect(FINConfig);
-            console.log('Connection on Financeiro database opened successfully')
+            Connection.FIN = new ConnectionPool(FINConfig);;
+            Connection.FIN.connect();
+            console.log('Connection on Financeiro database opened successfully');
         } catch (err) {
-            console.log('Erro to open connection on Financeiro database: ', err)
+            console.log('Erro to open connection on Financeiro database: ', err);
         }
-
     }
 }

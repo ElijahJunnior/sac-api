@@ -1,10 +1,11 @@
 import express from 'express';
 import { routes } from './routes/index';
 import { config } from 'dotenv';
-import { openConnection } from './Connection';
+import { Connection } from './Connection';
 
 config();
-openConnection();
+
+Connection.open();
 
 const app = express();
 app.use(express.json());
