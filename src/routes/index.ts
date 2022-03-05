@@ -8,7 +8,7 @@ import { BaseSequencial, SequenciaisRepository } from '../repository/Sequenciais
 
 const routes = Router();
 
-routes.use(checkJwt);
+// routes.use(checkJwt);
 routes.use('/auth', authRoutes);
 routes.use('/user', userRoutes);
 routes.use('/ocorrencia', ocorrenciaRoutes);
