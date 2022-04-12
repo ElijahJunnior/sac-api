@@ -11,12 +11,12 @@ export const Connection: ConnectionProps = {
     SAC: <ConnectionPool>{},
     open: async () => {
 
-        const SACConfig = {
-            user: process.env.DB_USER ?? '',
-            password: process.env.DB_PASSWORD ?? '',
-            database: process.env.DB_DATABASE_SAC ?? '',
-            server: process.env.DB_SERVER ?? '',
-            port: Number(process.env.DB_PORT ?? 0),
+        const sac_config = {
+            database: process.env.DB_SAC_DATABASE ?? '',
+            server: process.env.DB_SAC_SERVER ?? '',
+            port: Number(process.env.DB_SAC_PORT ?? 0),
+            user: process.env.DB_SAC_USER ?? '',
+            password: process.env.DB_SAC_PASSWORD ?? '',
             pool: {
                 max: 10,
                 min: 0,
@@ -28,12 +28,12 @@ export const Connection: ConnectionProps = {
             }
         }
 
-        const FINConfig = {
-            user: process.env.DB_USER ?? '',
-            password: process.env.DB_PASSWORD ?? '',
-            database: process.env.DB_DATABASE_FIN ?? '',
-            server: process.env.DB_SERVER ?? '',
-            port: Number(process.env.DB_PORT ?? 0),
+        const financeiro_config = {
+            database: process.env.DB_FINANCEIRO_DATABASE ?? '',
+            server: process.env.DB_FINANCEIRO_SERVER ?? '',
+            port: Number(process.env.DB_FINANCEIRO_PORT ?? 0),
+            user: process.env.DB_FINANCEIRO_USER ?? '',
+            password: process.env.DB_FINANCEIRO_PASSWORD ?? '',
             pool: {
                 max: 10,
                 min: 0,
@@ -47,7 +47,7 @@ export const Connection: ConnectionProps = {
 
         try {
             // make sure that any items are correctly URL encoded in the connection string
-            Connection.SAC = new ConnectionPool(SACConfig);
+            Connection.SAC = new ConnectionPool(sac_config);
             Connection.SAC.connect();
             console.log('Connection on SAC database opened successfully');
         } catch (err) {
@@ -56,7 +56,7 @@ export const Connection: ConnectionProps = {
 
         try {
             // make sure that any items are correctly URL encoded in the connection string
-            Connection.FIN = new ConnectionPool(FINConfig);;
+            Connection.FIN = new ConnectionPool(financeiro_config);;
             Connection.FIN.connect();
             console.log('Connection on Financeiro database opened successfully');
         } catch (err) {

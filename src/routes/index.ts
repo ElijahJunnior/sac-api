@@ -5,6 +5,7 @@ import { ocorrenciaRoutes } from './ocorrenciaRoutes';
 import { checkJwt } from '../middlewares/checkJwt';
 
 import { BaseSequencial, SequenciaisRepository } from '../repository/SequenciaisRepository';
+import { batchRouter } from './batchRouter';
 
 const routes = Router();
 

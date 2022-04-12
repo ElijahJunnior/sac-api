@@ -1,5 +1,0 @@
-### CRIAR TOKEN
-POST http://localhost:3030/auth/token
-
-### BUSCAR OCORRENCIAS ABERTAS 
-GET  http://localhost:3030/ocorrencia/ListarAbertas
