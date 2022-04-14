@@ -6,13 +6,16 @@ import { checkJwt } from '../middlewares/checkJwt';
 
 import { BaseSequencial, SequenciaisRepository } from '../repository/SequenciaisRepository';
 import { batchRouter } from './batchRouter';
+import { authV2Routes } from './authV2Routes';
 
 const routes = Router();
 
 // routes.use(checkJwt);
+routes.use('/auth2', authV2Routes);
 routes.use('/auth', authRoutes);
 routes.use('/user', userRoutes);
 routes.use('/ocorrencia', ocorrenciaRoutes);
+
 
 routes.use('/teste', async (req, res, next) => {
     const sequencial = await SequenciaisRepository.getSequencial(
